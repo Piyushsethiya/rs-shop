@@ -8,35 +8,74 @@ class Userc extends CI_Controller
     }
     public function index()
     {
-        // $data = $this->userM->get_data();
+        $data['list'] = $this->userM->get_data();
+
         $this->load->view('template/sidebar');
-        $this->load->view('user/list');
+        $this->load->view('user/list', $data);
         $this->load->view('template/footer');
     }
-    public function form(){
+    public function form()
+    {
         $this->load->view('template/sidebar');
         $this->load->view('user/add');
         $this->load->view('template/footer');
     }
     public function collect_data()
     {
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
         $data = array(
             'name' => $_POST['name'],
             'email' => $_POST['email'],
             'password' => $_POST['password'],
-            'mobile_no' => $_POST('mobile_no'),
+            'mobile_no' => $_POST['mobile_no'],
             'address' => $_POST['address'],
             'customer' => 1,
         );
-        echO"<pre>";
-        print_r($data);die();
         $query = $this->userM->insert($data);
-        if ($query) {
-            echo 'success';
+        if (!($query)) {
+            $this->session->set_flashdata('add', "Customer Register Successful.");  
+            redirect(base_url('userc'));
         } else {
-            echo "not done";
+            $this->session->set_flashdata('error', "Invalid Details, Please try again!");
+            redirect(base_url('userc'));
         }
     }
+    public function delete($id)
+    {
+        // echO"<pre>";
+        // print_r($id);die();
+        $query = $this->userM->delete_user($id);
+        if(!($query)){
+            $this->session->set_flashdata('success', 'Customer Deleted Successfully.');
+            redirect(base_url('userc'));
+        } else {
+            redirect(base_url('userc'));
+            $this->session->set_flashdata('delete', 'Error, Please try again!');
+
+        }
+    }
+    public function update_form($id){
+        $data['list'] = $this->userM->get_Update_data($id);
+
+        $this->load->view('template/sidebar');
+        $this->load->view('user/edit', $data);
+        $this->load->view('template/footer');
+    }
+    public function update_user($id){
+        $data = array(
+            'name' => $_POST['name'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'mobile_no' => $_POST['mobile_no'],
+            'address' => $_POST['address'],
+            'customer' => 1,
+        );
+        $query = $this->userM->update_user_data($data, $id);
+        if (!($query)) {
+            $this->session->set_flashdata('edit', "Customer data Updated Successful.");  
+            redirect(base_url('userc'));
+        } else {
+            $this->session->set_flashdata('error', "Invalid Details, Please try again!");
+            redirect(base_url('userc'));
+        }
     }
 }

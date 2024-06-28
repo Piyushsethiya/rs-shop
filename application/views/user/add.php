@@ -1,4 +1,5 @@
 <div class="container mt-5">
+
     <h2>Add Customer</h2>
     <form action="<?php echo base_url('userc/collect_data') ?>" method="POST">
         <div class="form-group">

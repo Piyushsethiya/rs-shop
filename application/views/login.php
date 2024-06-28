@@ -11,14 +11,22 @@
 </head>
 
 <body>
-    <?php if ($this->session->flashdata('error')){
-        $this->session->flashdata('error');
-        } ?>
     <section class="vh-100" style="background-color: #508bfc;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                     <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                        <?php
+                          if (!empty($this->session->flashdata('success'))) { ?>
+                            <h4 class="alert alert-success" style="text-align: center">
+                              <b><?php print_r($this->session->flashdata('success')); ?></b>
+                            </h4>
+                        
+                          <?php } else { ?>
+                            <h4 style="text-align: center; margin-top: 20px">
+                              <b><?php print_r($this->session->flashdata('error')); ?></b>
+                            </h4>
+                          <?php } ?>
                         <form action="<?php echo base_url('loginc/signin') ?>" method="POST">
                             <div class="card-body p-5 text-center">
                                 <div class="main-logo">
