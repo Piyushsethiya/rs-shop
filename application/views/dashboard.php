@@ -1,7 +1,8 @@
+<?php
+// print_r($c_count[0]['COUNT(id)']);die();
+?>
 <!-- Page Content  -->
-
 <div id="content" class="p-4 p-md-5">
-
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
     <!-- <div class="container-fluid"> -->
 
@@ -33,25 +34,28 @@
     <h2 class="mb-4">Welcome YOU!</h2>
     <br>
     <div class="cards" style="display:flex; justify-content: space-evenly;">
-    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-        <div class="card-header">
-            <h5 style="color: tomato">Total Customer</h5>
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+                <h5 style="color: tomato">Total Customer</h5>
+            </div>
+            <?php foreach ($c_count as $count) { ?>
+                <div class="card-body">
+                    <p class="card-text" style="text-align:center; font-size: 20px"><?php echo $count['customer_count']; ?>
+                    </p>
+                </div>
+            <?php } ?>
         </div>
-        <div class="card-body">
 
-            <p class="card-text" style="text-align:center; font-size: 20px">3000</p>
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+                <h5 style="color: tomato">Total Dealer</h5>
+            </div>
+            <?php foreach ($d_count as $count) { ?>
+                <div class="card-body">
+                    <p class="card-text" style="text-align:center; font-size: 20px"><?php echo $count['dealer_count']; ?>
+                    </p>
+                </div>
+            <?php } ?>
         </div>
     </div>
-
-    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-        <div class="card-header">
-            <h5 style="color: tomato">Total Clients</h5>
-        </div>
-        <div class="card-body">
-
-            <p class="card-text" style="text-align:center; font-size: 20px">3000</p>
-        </div>
-    </div>
-</div>
-
 </div>

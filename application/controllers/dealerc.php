@@ -29,7 +29,7 @@ class Dealerc extends CI_Controller{
             'customer' => 2,
         );
         $query = $this->dealerM->insert($data);
-        if (!($query)) {
+        if ($query) {
             $this->session->set_flashdata('add', "Dealer Register Successful.");  
             redirect(base_url('dealerc'));
         } else {
@@ -42,7 +42,7 @@ class Dealerc extends CI_Controller{
         // echO"<pre>";
         // print_r($id);die();
         $query = $this->dealerM->delete_dealer($id);
-        if(!($query)){
+        if($query){
             $this->session->set_flashdata('success', 'Dealer Deleted Successfully.');
             redirect(base_url('dealerc'));
         } else {
@@ -66,11 +66,13 @@ class Dealerc extends CI_Controller{
             'mobile_no' => $_POST['mobile_no'],
             'company_name' => $_POST['company_name'],
             'address' => $_POST['address'],
-            'customer' => 1,
+            'customer' => 2,
         );
         $query = $this->dealerM->update_dealer_data($data, $id);
-        if (!($query)) {
-            $this->session->set_flashdata('edit', "Dealer data Updated Successful.");  
+        // echO"<pre>";
+        // print_r($query);die();
+        if ($query) {
+            $this->session->set_flashdata('edit', "Dealer Data Updated Successful.");  
             redirect(base_url('dealerc'));
         } else {
             $this->session->set_flashdata('error', "Invalid Details, Please try again!");

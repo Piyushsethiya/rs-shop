@@ -31,12 +31,6 @@
                     <b><?php print_r($this->session->flashdata('delete')); ?></b>
                 </h4>
             <?php } ?>
-            <div>
-                <label><b>Search here</b></label>
-                <br>
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search here..">
-                <br>
-            </div>
             <div class="add-btn btn btn-primary mb-3" style="float: right;">
                 <a style="color: white;" href="<?php echo base_url('dealerc/form') ?>">Add Client</a>
             </div>
@@ -75,39 +69,15 @@
 </div>
 </div>
 
-<script>
-    $(document).ready(function () {
-        $('#datatable').DataTable();
-    });
-</script>
-<script>
-    function myFunction() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("datatable");
-        tr = table.getElementsByTagName("tr");
-        console.log(tr);
-        for (i = 0; i < tr.length; i++) {
-            td1 = tr[i].getElementsByTagName("td")[1];
-            td2 = tr[i].getElementsByTagName("td")[2];
-            td3 = tr[i].getElementsByTagName("td")[3];
-            td4 = tr[i].getElementsByTagName("td")[4];
-
-            if (td1 || td2 || td3 || td4) {
-
-                txtValue1 = td1.textContent || td1.innerText;
-                txtValue2 = td2.textContent || td2.innerText;
-                txtValue3 = td3.textContent || td3.innerText;
-                txtValue4 = td4.textContent || td4.innerText;
-                if (txtValue1.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1 || txtValue3.toUpperCase().indexOf(filter) > -1 || txtValue4.toUpperCase().indexOf(filter) > -1) {
-
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
+<script type="text/javascript">
+    window.onload = function exampleFunction() {
+        new DataTable('#datatable', {
+            layout: {
+                top: {
+                    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
                 }
-            }
-        }
-
+            },
+            pagingType: 'simple_numbers',
+        });
     }
 </script>
