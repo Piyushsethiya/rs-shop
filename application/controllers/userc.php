@@ -28,7 +28,7 @@ class Userc extends CI_Controller
             'password' => $_POST['password'],
             'mobile_no' => $_POST['mobile_no'],
             'address' => $_POST['address'],
-            'customer' => 1,
+            'role' => 1,
         );
         $query = $this->userM->insert($data);
         if (!($query)) {
@@ -67,11 +67,11 @@ class Userc extends CI_Controller
             'password' => $_POST['password'],
             'mobile_no' => $_POST['mobile_no'],
             'address' => $_POST['address'],
-            'customer' => 1,
+            'role' => 1,
         );
         $query = $this->userM->update_user_data($data, $id);
         if (!($query)) {
-            $this->session->set_flashdata('edit', "Customer data Updated Successful.");  
+            $this->session->set_flashdata('edit', "Customer data Updated Successful.");
             redirect(base_url('userc'));
         } else {
             $this->session->set_flashdata('error', "Invalid Details, Please try again!");

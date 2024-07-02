@@ -1,14 +1,15 @@
 <?php
 // echo"<pre>";print_r($list);die();
 ?>
-<div class="container mt-5">
-  <?php if (!empty($this->session->flashdata('add'))) { ?>
-    <h4 class="alert alert-success" style="text-align: center">
-      <b><?php print_r($this->session->flashdata('add')); ?></b>
-    </h4>
-  <?php } else { ?>
-    <h4>
-      <b><?php print_r($this->session->flashdata('error')); ?></b>
+<div id="content">
+  <div class="container mt-5">
+    <?php if (!empty($this->session->flashdata('add'))) { ?>
+      <h4 class="alert alert-success" style="text-align: center">
+        <b><?php print_r($this->session->flashdata('add')); ?></b>
+      </h4>
+    <?php } else { ?>
+      <h4>
+        <b><?php print_r($this->session->flashdata('error')); ?></b>
       </h4>
     <?php } ?>
     <?php if (!empty($this->session->flashdata('edit'))) { ?>
@@ -16,7 +17,7 @@
         <b><?php print_r($this->session->flashdata('edit')); ?></b>
       </h4>
     <?php } else { ?>
-      <h4">
+      <h4>
         <b><?php print_r($this->session->flashdata('error')); ?></b>
         </h4>
       <?php } ?>
@@ -62,6 +63,7 @@
           } ?>
         </tbody>
       </table>
+  </div>
 </div>
 
 <script type="text/javascript">
