@@ -34,6 +34,10 @@
             <label for="address">Address</label>
             <input type="text" class="form-control" id="address" value="<?php echo $data['address'] ?>" placeholder="Enter Address" name="address">
         </div>
+				<div class="form-group">
+            <label for="area">Area</label>
+            <input type="text" class="form-control" id="area" value="<?php echo $data['area'] ?>" placeholder="Enter Area" name="area">
+        </div>
         <div class="form-group">
             <label for="mobile_no">Phone Number</label>
             <input type="number" class="form-control" id="mobile_no" value="<?php echo $data['mobile_no'] ?>" placeholder="Enter Phone Number" name="mobile_no">

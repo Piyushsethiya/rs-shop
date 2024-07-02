@@ -50,11 +50,14 @@
     }
 
     @media screen and (max-width: 770px) {
-        .p_details {
-            display: grid;
-            justify-items: center;
-            justify-content: center;
-            padding-top: 20px;
+        .p_contain {
+            width: 100%;
+            border: none;
+        }
+
+        .p_contain h4 {
+            font-weight: 700;
+            font-size: 14px;
         }
 
         .profile_image {
@@ -64,8 +67,6 @@
 
         .image-set {
             border: none;
-            border-bottom: 2px solid;
-            /* margin: 0 -30px; */
             height: 180px;
             padding: 0 70px;
         }
@@ -78,7 +79,6 @@
 
     }
 </style>
-<?php // print_r($_SESSION);die(); ?>
 <div id="content" class="p-4 p-md-5">
     <h2 class="mb-4">Profile</h2>
     <div class="container">
@@ -87,13 +87,13 @@
         </div>
         <div class="p_contain">
             <h4>Full Name: <input type="text" style="background-color: transparent; border: none"
-                    value="<?php echo $_SESSION['name']; ?>"></input></h4>
+                    value="<?php echo $_SESSION['uid']['name']; ?>"></input></h4>
             <hr>
-            <h4>Email: <span><?php echo $_SESSION['email']; ?></span></h4>
+            <h4>Email: <span><?php echo $_SESSION['uid']['email']; ?></span></h4>
             <hr>
-            <h4>Phone Number: <span><?php echo $_SESSION['mobile_no']; ?></span></h4>
+            <h4>Phone Number: <span><?php echo $_SESSION['uid']['mobile_no']; ?></span></h4>
             <hr>
-            <h4>Address: <span><?php echo $_SESSION['address']; ?></span></h4>
+            <h4>Address: <span><?php echo $_SESSION['uid']['address']; ?></span></h4>
         </div>
         <div class="container2"></div>
     </div>

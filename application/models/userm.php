@@ -1,7 +1,7 @@
 <?php
 class UserM extends CI_Model{
     public function get_data(){
-        $sql = "SELECT * FROM user WHERE customer = 1";
+        $sql = "SELECT * FROM user WHERE role = 1";
         return $this->db->query($sql)->result_array();
     }
     public function insert($data){

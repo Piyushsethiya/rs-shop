@@ -17,14 +17,17 @@ class Loginc extends CI_Controller
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$query = $this->loginM->login($email, $password);
+
 		if ($query) {
-			$this->session->set_userdata('user_id', $query[0]['id']);
-			$this->session->set_userdata('email', $query[0]['email']);
-			$this->session->set_userdata('name', $query[0]['name']);
-			$this->session->set_userdata('mobile_no', $query[0]['mobile_no']);
-			$this->session->set_userdata('address', $query[0]['address']);
-			// echo "done";
-			// print_r($_SESSION);die();
+			$uid = array(
+				'user_id' => $query[0]['id'],
+				'email' => $query[0]['email'],
+				'name' => $query[0]['name'],
+				'mobile_no' => $query[0]['mobile_no'],
+				'address' => $query[0]['address'],
+				'area' => $query[0]['area']
+			);
+			$this->session->set_userdata('uid', $uid);
 			redirect(base_url('dashboardc'));
 		} else {
 			$this->session->set_flashdata('error', 'Invalid Username and Password!');

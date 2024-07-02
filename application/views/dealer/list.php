@@ -43,6 +43,7 @@
                         <th style="text-align: center;">Phone Number</th>
                         <th style="text-align: center;">Company name</th>
                         <th style="text-align: center;">Address</th>
+                        <th style="text-align: center;">Area</th>
                         <th style="text-align: center;">Action</th>
                     </tr>
                 </thead>
@@ -56,6 +57,7 @@
                             <td style="text-align: center;"><?php echo $data['mobile_no'] ?></td>
                             <td style="text-align: center;"><?php echo $data['company_name'] ?></td>
                             <td style="text-align: center;"><?php echo $data['address'] ?></td>
+                            <td style="text-align: center;"><?php echo $data['area'] ?></td>
                             <td style="text-align: center;"><a
                                     href="<?php echo base_url('dealerc/update_form/') . $data['id']; ?>"
                                     class="btn btn-success">Update</a><a

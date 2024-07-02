@@ -26,7 +26,8 @@ class Dealerc extends CI_Controller{
             'mobile_no' => $_POST['mobile_no'],
             'company_name' => $_POST['company_name'],
             'address' => $_POST['address'],
-            'customer' => 2,
+            'area' => $_POST['area'],
+            'role' => 2,
         );
         $query = $this->dealerM->insert($data);
         if ($query) {
@@ -66,7 +67,8 @@ class Dealerc extends CI_Controller{
             'mobile_no' => $_POST['mobile_no'],
             'company_name' => $_POST['company_name'],
             'address' => $_POST['address'],
-            'customer' => 2,
+            'area' => $_POST['area'],
+            'role' => 2,
         );
         $query = $this->dealerM->update_dealer_data($data, $id);
         // echO"<pre>";
