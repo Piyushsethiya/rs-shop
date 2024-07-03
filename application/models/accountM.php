@@ -8,4 +8,8 @@ class AccountM extends CI_Model{
 		$sql = "SELECT DISTINCT user.name FROM user, area_d WHERE user.area = '$area' AND role = 2";
 		return $this->db->query($sql)->result_array();
 	}
+	public function auth_dealer($area, $dealer){
+		$sql = "SELECT * FROM user WHERE name = '$dealer' AND area = '$area' AND role = 2";
+		return $this->db->query($sql)->result_array();
+	}
 }
