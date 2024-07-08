@@ -19,13 +19,14 @@ class Accountc extends CI_Controller{
 	}
 	public function open_list(){
 
-		$area = $_POST['area'];
-		$dealer = $_POST['dealer'];
-		
-		$auth = $this->accountM->auth_dealer($area, $dealer);
+		$data['area'] = $_POST['area'];
+		$data['dealer'] = $_POST['dealer'];
+		json_encode($data);
+		// $auth = $this->accountM->auth_dealer($area, $dealer);
 		// print_r($auth);die();
 		// if($auth)
-		$this->load->view('template/sidebar');
-        $this->load->view('account/choose_field');
-        $this->load->view('template/footer');	}
+		// $this->load->view('template/sidebar');
+        // $this->load->view('account/choose_field');
+        // $this->load->view('template/footer');	
+	}
 }
